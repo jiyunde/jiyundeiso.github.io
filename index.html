@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作系统ISO下载中心</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(0, 180, 219, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: rgba(30, 30, 40, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(100, 100, 255, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 180, 219, 0.3);
+        }
+        
+        .card-header {
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .windows .card-icon {
+            background: linear-gradient(135deg, #0078d7, #00bcf2);
+        }
+        
+        .macos .card-icon {
+            background: linear-gradient(135deg, #555555, #999999);
+        }
+        
+        .linux .card-icon {
+            background: linear-gradient(135deg, #f76902, #ff9500);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-description {
+            line-height: 1.6;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 180, 219, 0.4);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 7px 20px rgba(0, 180, 219, 0.6);
+        }
+        
+        .card-footer {
+            padding: 15px 25px;
+            background: rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .disclaimer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at center, rgba(0, 180, 219, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+        
+        .card:hover .glow {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>操作系统ISO下载中心</h1>
+            <p class="subtitle">安全、官方、最新的操作系统镜像文件</p>
+        </header>
+        
+        <div class="grid">
+            <!-- Windows 卡片 -->
+            <div class="card windows">
+                <div class="glow"></div>
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h2 class="card-title">Windows</h2>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Microsoft Windows 是个人计算机领域使用最广泛的操作系统。提供直观的图形界面和丰富的软件生态。
+                    </p>
+                    <a href="https://www.microsoft.com/zh-cn/software-download" target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> 前往官方下载页面
+                    </a>
+                </div>
+                <div class="card-footer">
+                    最新版本: Windows 11 | 文件大小: 约 5.1 GB
+                </div>
+            </div>
+            
+            <!-- macOS 卡片 -->
+            <div class="card macos">
+                <div class="glow"></div>
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h2 class="card-title">macOS</h2>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        macOS 是 Apple 公司为 Mac 电脑开发的操作系统，以其优雅的设计和稳定的性能而闻名。
+                    </p>
+                    <a href="https://www.apple.com/macos/" target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> 前往官方下载页面
+                    </a>
+                </div>
+                <div class="card-footer">
+                    最新版本: macOS Sonoma | 文件大小: 约 12 GB
+                </div>
+            </div>
+            
+            <!-- Linux 卡片 -->
+            <div class="card linux">
+                <div class="glow"></div>
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h2 class="card-title">Linux</h2>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Linux 是一个开源操作系统家族，提供多种发行版，适合不同需求的用户，从服务器到桌面应用。
+                    </p>
+                    <a href="https://ubuntu.com/download" target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> 下载 Ubuntu
+                    </a>
+                    <div style="margin-top: 10px; display: flex; gap: 10px;">
+                        <a href="https://www.debian.org/distrib/" target="_blank" style="flex: 1; text-align: center; padding: 8px 15px; background: rgba(255,255,255,0.1); border-radius: 5px; text-decoration: none; color: #e0e0e0; font-size: 0.9rem;">Debian</a>
+                        <a href="https://getfedora.org/" target="_blank" style="flex: 1; text-align: center; padding: 8px 15px; background: rgba(255,255,255,0.1); border-radius: 5px; text-decoration: none; color: #e0e0e0; font-size: 0.9rem;">Fedora</a>
+                        <a href="https://www.archlinux.org/download/" target="_blank" style="flex: 1; text-align: center; padding: 8px 15px; background: rgba(255,255,255,0.1); border-radius: 5px; text-decoration: none; color: #e0e0e0; font-size: 0.9rem;">Arch</a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    推荐发行版: Ubuntu 22.04 LTS | 文件大小: 约 4.6 GB
+                </div>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <p><strong>注意：</strong>本页面仅提供官方下载链接，请确保从官方来源下载操作系统镜像文件以保证安全。</p>
+            <p>下载和使用操作系统可能受到相关许可协议的限制，请遵守相应法律法规。</p>
+        </div>
+    </div>
+</body>
+</html>
